@@ -2,4 +2,5 @@
 
 export(install_MR_dependence)
 export(install_easyMR)
+export(install_easyMRbasic)
 export(install_package_MR)
