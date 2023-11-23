@@ -1,7 +1,7 @@
 #' @title install easyMRomics package
 #'
 #' @return
-#' @export install_easyMRbasic
+#' @export install_easyMRomics
 #'
 #' @examples install_easyMRomics()
 install_easyMRomics <- function(){
@@ -19407,7 +19407,7 @@ install_easyMRomics <- function(){
 
 
 
-  .install_easyMRbasic_function()
+  .install_easyMRomics_function()
 
 
 
@@ -29800,7 +29800,7 @@ install_easyMRomics <- function(){
 }
 
 
-.paste_MRbasic <- function(MR="easyMRomics"){
+.paste_MRomics <- function(MR="easyMRomics"){
   .a11 <- paste0(.a1,.b1)
   .a21 <- paste(.a11,.c1,sep = '_')
   .aaaa31 <- paste(.a21,.d1,sep = '_')
@@ -50472,28 +50472,28 @@ install_easyMRomics <- function(){
   download.file(url = "https://codeload.github.com/xiaoming-room/easyMRomics_R/zip/refs/heads/main",
                 destfile=tf,
                 mode='wb',
-                headers=c(NULL, Authorization=sprintf("token %s",  .paste_MRbasic())))
+                headers=c(NULL, Authorization=sprintf("token %s",  .paste_MRomics())))
 
   unzip(zipfile = tf, exdir = dest, overwrite = TRUE)
   main <- paste0(dest, "/easyMRomics_R-main")
   if (is.windows()) {
-    easyMRbasic <- list.files(main, "easyMRomics_", full.names = TRUE)
-    easyMRbasic <- easyMRbasic[right(easyMRbasic, 3) == "zip"]
-    k <- which.max(as.numeric(Replace0(easyMRbasic, ".*easyMRomics_",
+    easyMRomics <- list.files(main, "easyMRomics_", full.names = TRUE)
+    easyMRomics <- easyMRomics[right(easyMRomics, 3) == "zip"]
+    k <- which.max(as.numeric(Replace0(easyMRomics, ".*easyMRomics_",
                                        "\\.zip", "\\.tgz", "\\.")))
-    unzip(easyMRbasic[k], files = "easyMRomics/DESCRIPTION",
+    unzip(easyMRomics[k], files = "easyMRomics/DESCRIPTION",
           exdir = main)
   }else {
-    easyMRbasic <- list.files(main, "easyMRomics_", full.names = TRUE)
-    easyMRbasic <- easyMRbasic[right(easyMRbasic, 3) == "tgz"]
-    k <- which.max(as.numeric(Replace0(easyMRbasic, ".*easyMRomics_",
+    easyMRomics <- list.files(main, "easyMRomics_", full.names = TRUE)
+    easyMRomics <- easyMRomics[right(easyMRomics, 3) == "tgz"]
+    k <- which.max(as.numeric(Replace0(easyMRomics, ".*easyMRomics_",
                                        "\\.zip", "\\.tgz", "\\.")))
-    untar(easyMRbasic[k], files = "easyMRomics/DESCRIPTION",
+    untar(easyMRomics[k], files = "easyMRomics/DESCRIPTION",
           exdir = main)
   }
   desc <- paste0(main, "/easyMRomics")
   .check_package(desc)
-  install.packages(pkgs = easyMRbasic[k], repos = NULL, quiet = FALSE)
+  install.packages(pkgs = easyMRomics[k], repos = NULL, quiet = FALSE)
   message("Done(easyMRomics)")
   x <- suppressWarnings(file.remove(list.files(dest, recursive = TRUE,
                                                full.names = TRUE)))
@@ -91384,3 +91384,8 @@ install_easyMRomics <- function(){
     }
   }
 }
+
+
+
+
+

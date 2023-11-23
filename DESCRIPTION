@@ -1,5 +1,5 @@
 Package: easyMRhelp
-Title: Installation of easyMR packgae
+Title: Installation of series of easyMR packgae
 Version: 0.0.0.9000
 Authors@R: 
     person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
